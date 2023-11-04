@@ -10,14 +10,13 @@
         <div class="text-xl font-bold"># Free Palestine</div>
         <div class="text-sm text-xl">
             <div class="gap-5 flex justify-between">
-                <div class="gap-5 flex justify-between"><a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
-                    href="{% url 'app:user_maps' %}">+-</a>
+               
               <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
                     href="{% url 'app:map_list' %}">map</a>
                 <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
                     href="{% url 'app:map_form' %}">Add</a>
                 <a class=" p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
-                    href="{% url 'app:NewsList' %}">News</a>
+                    href="{% url 'app:home' %}">News</a>
                     <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
                     href="{% url 'logout' %}">Logout</a>
             </div>
@@ -29,5 +28,6 @@
     <p>Date: {{ map_instance.date }}</p>
     <!-- Affichez d'autres détails de la carte ici -->
     <img src="{{ map_instance.photo.url }}" alt="Photo de la carte">
+    <p>Description: {{ map_instance.description }}</p>
 </body>
 </html>

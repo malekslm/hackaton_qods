@@ -27,7 +27,11 @@
     <ul>
         {% for map in maps %}
         <li>
-            <strong>photo:</strong> <img class="custom-image-container"class="custom-image"  src="{{ map.photo.url }}" alt="Photo de la carte">    <strong>Latitude:</strong> {{ map.lat }}, <strong>Longitude:</strong> {{ map.lon }}, <strong>Date:</strong> {{ map.date }}
+            <strong>photo:</strong> <img class="custom-image-container"
+            class="custom-image"  src="{{ map.photo.url }}"
+             alt="Photo de la carte"> 
+                <strong>Latitude:</strong> {{ map.lat }},
+                 <strong>Longitude:</strong> {{ map.lon }}, <strong>Date:</strong> {{ map.date }},<strong>Date:</strong> {{ map.description }}
         </li>
         {% empty %}
         <li>Aucune carte disponible.</li>

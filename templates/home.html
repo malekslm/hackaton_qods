@@ -20,9 +20,32 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <title>Code for qods</title>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="absolute w-full h-full text-center align-middle">
+   
+    <div>
+        <div class="top-0 left-0 w-full h-16 bg-gray-800 text-white flex items-center justify-between px-4 mr-4" >
+          <div class="text-xl font-bold"># Free Palestine</div>
+          <div class="text-sm text-xl">
+              <div class="gap-5 flex justify-between">
+               
+                <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                      href="{% url 'app:map_list' %}">map</a>
+                  <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                      href="{% url 'app:map_form' %}">Add</a>
+                  <a class=" p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                      href="{% url 'app:home' %}">News</a>
+                      <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                      href="{% url 'logout' %}">Logout</a>
+              </div>
+          </div>
+      </div>
+      </div>
     <div class="container text-center">
         <div class="row">
             <div class="col-md-4"></div>
@@ -32,72 +55,40 @@
             <div class="col-md-4"></div>
         </div>
         <hr>
+        
         <div class="row">
+            {% for map in maps %}
             <div class="col-md-4">
+                
                 <div class="card border border-primary shadow-0 ">
                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/111.webp" class="img-fluid" />
+                        <img class="custom-image-container"class="custom-image"  src="{{ map.photo.url }}"alt="Photo de la carte">
                         <a href="#!">
                             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                         </a>
                     </div>
-                    <div class="card-header">Featured</div>
+                    <div class="card-header"></div>
+
+                    
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the
-                            card's content.
+                            <strong>Latitude:</strong> {{ map.lat }},</p>
+                            <p class="card-text">
+                            <strong>Longitude:</strong> {{ map.lon }},</p>
+                            <p class="card-text">
+                            <strong>Date:</strong> {{ map.date }},
                         </p>
 
 
                     </div>
-                    <div class="card-footer">2 days ago</div>
+                    <div class="card-footer">Description: {{ map.description }}</div>
                 </div>
             </div>
+            {% endfor %}
             
-            <div class="col-md-4">
-                <div class="card border border-primary shadow-0 ">
-                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/111.webp" class="img-fluid" />
-                        <a href="#!">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                        </a>
-                    </div>
-                    <div class="card-header">Featured</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the
-                            card's content.
-                        </p>
 
 
-                    </div>
-                    <div class="card-footer">2 days ago</div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card border border-primary shadow-0 ">
-                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/111.webp" class="img-fluid" />
-                        <a href="#!">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                        </a>
-                    </div>
-                    <div class="card-header">Featured</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the
-                            card's content.
-                        </p>
-
-
-                    </div>
-                    <div class="card-footer">2 days ago</div>
-                </div>
-            </div>
         </div>
     </div>
 

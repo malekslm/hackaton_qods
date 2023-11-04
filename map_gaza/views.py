@@ -9,9 +9,14 @@ from django.shortcuts import render, get_object_or_404, redirect
 def index(request):
     
     return render(request, 'index.html')
+
 def home(request):
-    
-    return render(request, 'home.html')
+    maps = Map.objects.all().order_by('-date')  # Triez les objets Map par date, du plus récent au plus ancien
+    return render(request, 'home.html', {'maps': maps})
+
+
+
+
 def edit_map(request, map_id):
     map_instance = get_object_or_404(Map, id=map_id)
     if request.method == 'POST':
@@ -53,7 +58,7 @@ def map_form(request):
             
             # Redirigez l'utilisateur vers une autre page après avoir soumis le formulaire si nécessaire
             # Redirigez par exemple vers la page de détails de la nouvelle carte
-            return redirect('app:map_detail', pk=new_map.pk)  # Assurez-vous d'avoir une URL nommée 'map_detail' avec un paramètre 'pk'
+            return redirect('app:home')  # Assurez-vous d'avoir une URL nommée 'map_detail' avec un paramètre 'pk'
     else:
         form = MapForm()
 

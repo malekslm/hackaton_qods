@@ -8,23 +8,25 @@
     
     {% tailwind_css %}
 </head>
-<body>
-    <div class="top-0 left-0 w-full h-16 bg-gray-800 text-white flex items-center justify-between px-4 mr-4" >
-        <div class="text-xl font-bold"># Free Palestine</div>
-        <div class="text-sm text-xl">
-            <div class="gap-5 flex justify-between"><a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
-              href="{% url 'app:user_maps' %}">+-</a>
-              <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
-                    href="{% url 'app:map_list' %}">map</a>
+<body  class="absolute w-full h-full text-center align-middle bg-slate-500" >
+    <div>
+        <div class="top-0 left-0 w-full h-16 bg-gray-800 text-white flex items-center justify-between px-4 mr-4" >
+          <div class="text-xl font-bold"># Free Palestine</div>
+          <div class="text-sm text-xl">
+              <div class="gap-5 flex justify-between">
+               
                 <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
-                    href="{% url 'app:map_form' %}">Add</a>
-                <a class=" p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
-                    href="{% url 'app:NewsList' %}">News</a>
-                    <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
-                    href="{% url 'logout' %}">Logout</a>
-            </div>
-        </div>
-    </div>
+                      href="{% url 'app:map_list' %}">Map</a>
+                  <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                      href="{% url 'app:map_form' %}">Add</a>
+                  <a class=" p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                      href="{% url 'app:home' %}">News</a>
+                      <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                      href="{% url 'logout' %}">Logout</a>
+              </div>
+          </div>
+      </div>
+      </div>
     <h1>Vos Cartes :</h1>
     <ul>
         {% for map in maps %}

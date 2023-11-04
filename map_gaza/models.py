@@ -9,7 +9,7 @@ class Map(models.Model):
     lon = models.FloatField()
     date = models.DateTimeField()
     photo = models.ImageField(upload_to="photos/")
-
+    description = models.CharField(max_length=255, null=True)
     @property
     def photo_url(self):
         if self.photo and hasattr(self.photo, 'url'):
