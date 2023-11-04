@@ -21,6 +21,8 @@ urlpatterns = [
     path('maps/', views.map_list, name='map_list'),
     path('map_form/', views.map_form, name='map_form'),
     path('NewsList/', views.NewsList, name='NewsList'),    
+    path('', views.index, name='index'),   
+    path('home', views.home, name='home'),  
 
     
 ]

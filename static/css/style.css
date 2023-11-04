@@ -1,0 +1,22 @@
+#nav {
+    background-color: transparent;
+    color: white;
+}
+
+body {
+    background-image: url("{%static 'img/3i8XmN1.png'%}");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+#text-container {
+    color: white;
+    padding-top: 25%;
+}

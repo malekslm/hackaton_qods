@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 
-    <link rel="stylesheet"  href="{%static 'css/style.css'%}">
+   
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <!-- Google Fonts -->
@@ -20,6 +21,31 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <title>Code for qods</title>
+    <style>
+        #nav {
+            background-color: transparent;
+            color: white;
+        }
+    
+        body {
+            background-image: url("{% static 'img/3i8XmN1.png' %}");
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding-top: 1%;
+            padding-bottom: 1%;
+        }
+    
+        #text-container {
+            color: white;
+            padding-top: 25%;
+        }
+    </style>
+    
 </head>
 
 <body>
@@ -48,7 +74,7 @@
                         <!-- Link -->
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <a href="#">
+                                <a href="{% url 'app:map_list' %}">
                                     <h6 class="display-6" style="color: rgb(255, 0, 0);">Home</h6>
                                 </a>
                             </a>
@@ -78,5 +104,53 @@
 </body>
 
 
-<script src="{%static 'js/script.js'%}" ></script>
+ <script >const stringsToType = [
+    " نصر من الله و فتح قريب",
+    "Victory from God and imminent triumph ",
+    "神的胜利，即将的胜利 ",
+    "Victoria de Dios y triunfo inminente ",
+    "Victoire de Dieu et triomphe imminent ",
+    "Победа от Бога и неотвратимая победа ",
+    "Sieg von Gott und bevorstehender Triumph ",
+    "Vittoria da Dio e trionfo imminente ",
+    "भगवान की विजय और आसन सफलता ",
+    "Vitória de Deus e triunfo iminente ",
+  ];
+  
+  const textContainer = document.getElementById("text-container");
+  let stringIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  
+  function typeString() {
+    const currentString = stringsToType[stringIndex];
+  
+    if (!isDeleting) {
+      textContainer.innerHTML = currentString.substring(0, charIndex);
+      charIndex++;
+  
+      if (charIndex > currentString.length) {
+        isDeleting = true;
+        setTimeout(typeString, 1000); // Pause before deleting
+      } else {
+        setTimeout(typeString, 50); // Typing speed
+      }
+    } else {
+      textContainer.innerHTML = currentString.substring(0, charIndex);
+      charIndex--;
+  
+      if (charIndex === 0) {
+        isDeleting = false;
+        stringIndex = (stringIndex + 1) % stringsToType.length;
+        setTimeout(typeString, 500); // Pause before typing the next string
+      } else {
+        setTimeout(typeString, 50); // Deleting speed
+      }
+    }
+  }
+  
+  typeString();
+  
+  
+  </script> 
 </html>

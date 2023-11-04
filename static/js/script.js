@@ -1,14 +1,14 @@
 const stringsToType = [
-  "🇵🇸 نصر من الله و فتح قريب",
-  "Victory from God and imminent triumph 🇵🇸",
-  "神的胜利，即将的胜利 🇵🇸",
-  "Victoria de Dios y triunfo inminente 🇵🇸",
-  "Victoire de Dieu et triomphe imminent 🇵🇸",
-  "Победа от Бога и неотвратимая победа 🇵🇸",
-  "Sieg von Gott und bevorstehender Triumph 🇵🇸",
-  "Vittoria da Dio e trionfo imminente 🇵🇸",
-  "भगवान की विजय और आसन सफलता 🇵🇸",
-  "Vitória de Deus e triunfo iminente 🇵🇸",
+  " نصر من الله و فتح قريب",
+  "Victory from God and imminent triumph ",
+  "神的胜利，即将的胜利 ",
+  "Victoria de Dios y triunfo inminente ",
+  "Victoire de Dieu et triomphe imminent ",
+  "Победа от Бога и неотвратимая победа ",
+  "Sieg von Gott und bevorstehender Triumph ",
+  "Vittoria da Dio e trionfo imminente ",
+  "भगवान की विजय और आसन सफलता ",
+  "Vitória de Deus e triunfo iminente ",
 ];
 
 const textContainer = document.getElementById("text-container");

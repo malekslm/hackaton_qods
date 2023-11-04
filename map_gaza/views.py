@@ -6,8 +6,12 @@ from django.utils import timezone
 
 from django.shortcuts import render, get_object_or_404, redirect
 # Create your views here.
-
-
+def index(request):
+    
+    return render(request, 'index.html')
+def home(request):
+    
+    return render(request, 'home.html')
 def edit_map(request, map_id):
     map_instance = get_object_or_404(Map, id=map_id)
     if request.method == 'POST':
