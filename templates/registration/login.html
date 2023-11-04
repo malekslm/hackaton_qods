@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <!-- link css -->
+    <link rel="stylesheet" href= "{%static 'css/loginpage.css'%}" />
+     <!-- link js -->
+    <script src= "{%static 'js/login.js'%}"defer></script>
+     <!-- add icon link -->
+    <link rel = "icon" href = "{%static 'img/logo-onm.png'%}"  type = "image/x-icon">
+    
+    <title>connexion et d'inscription</title>
+  </head>
+  <body>
+    <!-- container
+    
+  
+             -->
+
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+            <!-- Login form -->
+          <form method="POST" action="{% url 'login' %}" class="sign-in-form">
+            {% csrf_token %}
+            <h2 class="title">S'identifier</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+           
+              <input type="text" name="username">
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+            
+              <input type="password" name="password">
+            </div>
+            <br>
+            <br>
+            <button type="submit" class="btn solid"   >Connexion</button>
+
+            <p class="social-text">Ou s'identifier avec les plateformes sociales</p>
+            <!-- social-media platforms -->
+            <div class="social-media">
+              
+                <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+
+            </div>
+          </form>
+
+          <!-- sign up  form -->
+
+         
+         
+            <form method="POST" action="{% url 'signup' %} "class="sign-up-form" >
+              {% csrf_token %}
+         
+            <h2 class="title">S'inscrire</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+          
+              <input type="text" name="first_name">
+
+            
+            </div>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+          
+              <input type="text" name="last_name">
+
+            
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="text" name="email">
+             
+             </div>
+
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" name="password">
+             </div>
+
+        
+             
+            <button type="submit"  class="btn">Inscription</button>
+
+
+            <!-- social platforms -->
+            <p class="social-text">Ou Inscrivez-vous avec les plateformes sociales</p>
+            <div class="social-media">
+              
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+            <img id="logo"  src="{%static 'img/onm-logo.png'%}" class="image" alt="" />
+          <div class="content">
+            <h3>Nouveau ici ?</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+              ex ratione. Aliquid!
+            </p>
+            <button class="btn transparent" id="sign-up-btn">s'inscrire</button>
+
+          </div>
+          
+          <div>
+        
+          </div>
+          
+        </div>
+        <div class="panel right-panel">
+            <img id="logo"  src="{%static 'img/onm-logo.png'%}" class="image" alt="" />
+         <div class="content">
+            <h3>Un de nous ?</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit..
+            </p>
+            <button class="btn transparent" id="sign-in-btn"> S'identifier </button>
+         </div>
+          
+        </div>
+
+      </div>
+
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supprimer la carte</title>
+</head>
+<body>
+    <div class="top-0 left-0 w-full h-16 bg-gray-800 text-white flex items-center justify-between px-4 mr-4" >
+        <div class="text-xl font-bold"># Free Palestine</div>
+        <div class="text-sm text-xl">
+            <div class="gap-5 flex justify-between">
+                <div class="gap-5 flex justify-between"><a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                    href="{% url 'app:user_maps' %}">+-</a>
+              <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                    href="{% url 'app:map_list' %}">map</a>
+                <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                    href="{% url 'app:map_form' %}">Add</a>
+                <a class=" p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                    href="{% url 'app:NewsList' %}">News</a>
+                    <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                    href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+    <h1>Supprimer la carte</h1>
+    <p>Êtes-vous sûr de vouloir supprimer cette carte ?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmer la suppression</button>
+    </form>
+</body>
+</html>

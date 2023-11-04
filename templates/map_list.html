@@ -1,0 +1,51 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map with Circles</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    {% tailwind_css %}
+  </head>
+  <body>
+    <div class="top-0 left-0 w-full h-16 bg-gray-800 text-white flex items-center justify-between px-4 mr-4" >
+      <div class="text-xl font-bold"># Free Palestine</div>
+      <div class="text-sm text-xl">
+          <div class="gap-5 flex justify-between"><a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+            href="{% url 'app:user_maps' %}">+-</a>
+            <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                  href="{% url 'app:map_list' %}">map</a>
+              <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                  href="{% url 'app:map_form' %}">Add</a>
+              <a class=" p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                  href="{% url 'app:NewsList' %}">News</a>
+                  <a class="p-2 hover:bg-gray-700 rounded-lg hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                  href="{% url 'logout' %}">Logout</a>
+          </div>
+      </div>
+  </div>
+    <div class="w-full h-[56.4rem]" id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([36.744999, 3.06139], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        {% for map_instance in maps %}
+        var circle = L.circle([{{ map_instance.lat }}, {{ map_instance.lon }}], {
+          color: '#536878',
+          fillColor: '#536878',
+          fillOpacity: 0.5,
+          radius: 2500 // Rayon du cercle en mètres
+        }).addTo(map);
+
+        circle.bindPopup('<div class="flex-col"><div class="w-64 h-64"><img class="w-full h-full" src= "{{ map_instance.photo.url }}" alt="Photo"></div><div class="flex"><p class="font-bold">Latitude:</p> <p>{{ map_instance.lat }}</p></div><div class="flex"><p class="font-bold">Longitude:</p> <p>{{ map_instance.lon }}</p></div><div class="flex"><p class="font-bold">Date:</p>  <p>{{ map_instance.date }}</p></div><div class="flex"><p class="font-bold">Description:</p>  <p>Free Palestine</p></div> </div>');
+      {% endfor %}
+    </script>
+  </body>
+</html>

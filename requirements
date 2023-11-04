@@ -1,0 +1,25 @@
+add these to the settings 
+
+" 
+INSTALLED_APP = [
+'tailwind',
+    'theme'
+]
+
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS =[
+    "127.0.0.1"
+]
+
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+
+"
+then 
+pip install django_browser_reload
+
+py manage.py install tailwind
+
+py manage.py tailwind start 
+
+py manage.py run server
